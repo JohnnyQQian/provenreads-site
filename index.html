@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProvenReads: award-winning children's books, matched to your child</title>
+<meta name="description" content="ProvenReads recommends award-winning children's books matched to your child's age, interests and reading level, with direct links to the library or an online bookstore.">
+<link rel="canonical" href="https://www.provenreads.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.provenreads.com/">
+<meta property="og:title" content="ProvenReads: award-winning books, matched to your child">
+<meta property="og:description" content="Only award-winning children's books, matched to your child's age, interests and reading level.">
+<meta property="og:image" content="https://www.provenreads.com/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fff9ed">
+<link rel="icon" type="image/png" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lexend:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2b3a67; --teal: #14806b; --teal-bright: #1fa58a; --cream: #fff9ed; --ink: #1f2540;
+    --muted: #5a6078; --gold-bg: #ffe9b8; --gold-ink: #7a4a00; --mint: #dff5ee; --card: #ffffff; --line: #e9dfca;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body { margin: 0; background: var(--cream); color: var(--ink); font: 400 18px/1.6 'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif; overflow-x: clip; }
+  h1, h2, h3 { font-family: 'Fredoka', 'Lexend', system-ui, sans-serif; color: var(--navy); line-height: 1.12; margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(40px, 6.4vw, 68px); font-weight: 700; }
+  h1 em, h2 em { font-style: normal; color: var(--teal-bright); }
+  h2 { font-size: clamp(30px, 4.2vw, 44px); font-weight: 700; }
+  h3 { font-size: 23px; font-weight: 600; }
+  p { margin: 0; }
+  a { color: var(--teal); text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--navy); outline-offset: 4px; border-radius: 6px; }
+  img { max-width: 100%; display: block; }
+  .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+  section { padding: clamp(56px, 8vw, 96px) 0; position: relative; }
+  .lead { font-size: clamp(18px, 2vw, 21px); color: var(--muted); max-width: 34em; }
+  .eyebrow { display: inline-block; font: 600 15px/1 'Fredoka', sans-serif; letter-spacing: .08em; text-transform: uppercase;
+             color: var(--gold-ink); background: var(--gold-bg); padding: 9px 16px; border-radius: 999px; margin-bottom: 18px; }
+  .center { text-align: center; }
+  .center .lead { margin-inline: auto; }
+
+  /* header */
+  header { padding: 18px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  header img { width: clamp(170px, 24vw, 230px); height: auto; mix-blend-mode: multiply; }
+  .btn-small { font: 600 16px/1 'Fredoka', sans-serif; color: #fff; background: var(--navy); padding: 13px 20px; border-radius: 999px; text-decoration: none; white-space: nowrap; }
+
+  /* store button */
+  .play { display: inline-flex; align-items: center; gap: 14px; background: var(--navy); color: #fff; text-decoration: none;
+          padding: 14px 28px 14px 22px; border-radius: 18px; box-shadow: 0 6px 0 rgba(43,58,103,.25); transition: transform .15s, box-shadow .15s; }
+  .play:hover { transform: translateY(-2px); box-shadow: 0 8px 0 rgba(43,58,103,.25); }
+  .play:active { transform: translateY(3px); box-shadow: 0 3px 0 rgba(43,58,103,.25); }
+  .play svg { width: 30px; height: 30px; flex: none; }
+  .play small { display: block; font: 500 12px/1 'Fredoka', sans-serif; letter-spacing: .14em; opacity: .85; margin-bottom: 5px; }
+  .play span { display: block; font: 600 25px/1 'Fredoka', sans-serif; }
+
+  /* hero */
+  .hero { padding-top: clamp(24px, 4vw, 48px); }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .hero .lead { margin: 22px 0 30px; }
+  .ticks { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 16px; color: var(--muted); }
+  .ticks li::before { content: "✓"; color: var(--teal-bright); font-weight: 700; margin-right: 8px; }
+  .blob { position: absolute; border-radius: 50%; z-index: -1; }
+  .phone { width: min(330px, 78vw); margin-inline: auto; background: #1b2238; padding: 10px; border-radius: 40px;
+           box-shadow: 0 30px 60px rgba(31,37,64,.28); transform: rotate(2.5deg); }
+  .phone img { border-radius: 31px; width: 100%; height: auto; }
+  .phone.left { transform: rotate(-2.5deg); }
+  .phone-stage { position: relative; }
+  .chip { position: absolute; font: 600 17px/1 'Fredoka', sans-serif; padding: 12px 18px; border-radius: 999px; white-space: nowrap;
+          background: #fff; color: var(--navy); border: 3px solid var(--navy); box-shadow: 0 5px 0 rgba(43,58,103,.18); }
+  .chip.gold { background: var(--gold-bg); border-color: #d98f0c; color: var(--gold-ink); }
+  .chip.green { background: var(--mint); border-color: var(--teal); color: #0d5a4b; }
+
+  /* steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; counter-reset: step; padding: 0; list-style: none; }
+  .steps li { background: var(--card); border: 2px solid var(--line); border-radius: 28px; padding: 30px 26px; counter-increment: step; }
+  .steps li::before { content: counter(step); display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+                      background: var(--teal-bright); color: #fff; font: 700 24px/1 'Fredoka', sans-serif; margin-bottom: 18px; }
+  .steps p, .features p { color: var(--muted); margin-top: 8px; font-size: 17px; }
+
+  /* features */
+  .split { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .features { display: grid; gap: 26px; margin-top: 34px; padding: 0; list-style: none; }
+  .features li { display: grid; grid-template-columns: 54px 1fr; gap: 16px; }
+  .features .ico { width: 54px; height: 54px; border-radius: 18px; background: var(--mint); display: grid; place-items: center; font-size: 26px; }
+
+  /* books */
+  .tint { background: #fdf1d6; }
+  .books { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 44px; padding: 0; list-style: none; }
+  .books li { text-align: center; }
+  .books img { height: 250px; width: auto; margin: 0 auto 16px; border-radius: 10px; box-shadow: 0 14px 28px rgba(31,37,64,.22); }
+  .books a { display: block; text-decoration: none; }
+  .books a img { transition: transform .15s; }
+  .books a:hover img { transform: translateY(-4px); }
+  .books b { display: block; font: 600 19px/1.25 'Fredoka', sans-serif; color: var(--navy); }
+  .books span { display: inline-block; margin-top: 8px; font-size: 14px; line-height: 1.3; color: var(--gold-ink); background: var(--gold-bg); padding: 6px 12px; border-radius: 999px; }
+  .awards { margin-top: 44px; font-size: 16px; color: var(--muted); }
+
+  /* privacy */
+  .trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; padding: 0; list-style: none; }
+  .trust li { background: var(--mint); border-radius: 24px; padding: 26px; }
+  .trust p { color: #23554b; margin-top: 8px; font-size: 17px; }
+
+  /* final call */
+  .final { background: var(--navy); color: #fff; text-align: center; border-radius: 40px; padding: clamp(44px, 7vw, 76px) 24px; }
+  .final h2 { color: #fff; }
+  .final p { color: #d5dbf0; margin: 16px auto 30px; max-width: 30em; }
+  .final .play { background: #fff; color: var(--navy); box-shadow: 0 6px 0 rgba(0,0,0,.25); }
+
+  footer { padding: 40px 0 56px; font-size: 15px; color: var(--muted); }
+  footer nav { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-bottom: 18px; font-size: 16px; }
+  footer p + p { margin-top: 8px; }
+
+  @media (max-width: 860px) {
+    .hero .wrap, .split { grid-template-columns: 1fr; }
+    .hero { text-align: center; }
+    .hero .lead { margin-inline: auto; }
+    .ticks { justify-content: center; }
+    .steps, .trust { grid-template-columns: 1fr; }
+    .books { grid-template-columns: repeat(2, 1fr); }
+    .books img { height: 210px; }
+    .split .phone-stage { order: 2; }
+    .chip { font-size: 15px; padding: 10px 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .play { transition: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="/" aria-label="ProvenReads home"><img src="img/logo.png" alt="ProvenReads" width="540" height="91"></a>
+    <a class="btn-small" href="https://play.google.com/store/apps/details?id=com.provenreads.app">Get the app</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="blob" style="width:520px;height:520px;left:-220px;top:-200px;background:#ffe9b8;opacity:.7"></div>
+    <div class="blob" style="width:560px;height:560px;right:-240px;top:220px;background:#d6f1ea;opacity:.85"></div>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">For parents of young readers</span>
+        <h1>Award-winning books, <em>matched to your child.</em></h1>
+        <p class="lead">Stop guessing which books are worth it. ProvenReads recommends only award-winning children’s books, picked for your child’s age, interests and reading level.</p>
+        <a class="play" href="https://play.google.com/store/apps/details?id=com.provenreads.app">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M22 10 L86 50 L22 90 Z" fill="currentColor" stroke="currentColor" stroke-width="10" stroke-linejoin="round"/></svg>
+          <div><small>GET IT ON</small><span>Google Play</span></div>
+        </a>
+        <ul class="ticks">
+          <li>Start without an email</li>
+          <li>No third-party ads</li>
+          <li>Library and bookstore links</li>
+        </ul>
+      </div>
+      <div class="phone-stage">
+        <div class="phone"><img src="img/screen-books.webp" alt="ProvenReads showing three recommended award-winning books with their themes, awards and links to the library and Amazon" width="720" height="1465"></div>
+        <span class="chip gold" style="left:-4%;top:17%;transform:rotate(-4deg)">🏆 Award winners</span>
+        <span class="chip" style="right:-2%;top:44%;transform:rotate(3deg)">📖 Right reading level</span>
+        <span class="chip green" style="left:-2%;top:70%;transform:rotate(-3deg)">💡 What they’re into</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap center">
+      <h2>Great picks in <em>three steps</em></h2>
+      <p class="lead" style="margin-top:14px">Set it up once. It takes a few minutes.</p>
+      <ol class="steps" style="text-align:left">
+        <li><h3>Add your child</h3><p>Tell the app their age and the themes they love, from animals and mystery to STEM and fantasy.</p></li>
+        <li><h3>Take a quick vocabulary check</h3><p>A short quiz fine-tunes the difficulty, so books are not too easy and not too hard.</p></li>
+        <li><h3>Get books they’ll finish</h3><p>See award winners chosen for your child, then borrow from the library or buy online in one tap.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="phone-stage">
+        <div class="phone left"><img src="img/screen-home.webp" alt="ProvenReads home screen with a child profile, upcoming award announcements and the vocabulary check" width="720" height="1465" loading="lazy"></div>
+        <span class="chip gold" style="right:-2%;top:42%;transform:rotate(4deg)">🔔 New winners</span>
+        <span class="chip green" style="left:-3%;top:62%;transform:rotate(-4deg)">🎯 Vocabulary check</span>
+      </div>
+      <div>
+        <h2>Everything you need to <em>choose well</em></h2>
+        <ul class="features">
+          <li><div class="ico" aria-hidden="true">🏆</div><div><h3>Only proven books</h3><p>Every recommendation comes from trusted children’s book awards and reading lists in the US, UK, Australia and Singapore.</p></div></li>
+          <li><div class="ico" aria-hidden="true">🎯</div><div><h3>The right level</h3><p>Picks follow your child’s age and vocabulary, and each book shows its reading band and themes.</p></div></li>
+          <li><div class="ico" aria-hidden="true">🔔</div><div><h3>New winners as they’re announced</h3><p>See which awards are announcing next, and find the new winners in the app.</p></div></li>
+          <li><div class="ico" aria-hidden="true">📚</div><div><h3>Borrow or buy in one tap</h3><p>Each book has direct links to the library or an online bookstore.</p></div></li>
+          <li><div class="ico" aria-hidden="true">❤️</div><div><h3>Keep track together</h3><p>Mark books as finished or liked, and the recommendations keep getting better.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap center">
+      <h2>Books that <em>earned their place</em></h2>
+      <p class="lead" style="margin-top:14px">A few of the award winners you’ll find in the app. Tap a cover to see it on Amazon.</p>
+      <ul class="books">
+        <li><a href="https://www.amazon.com/s?k=Fox+Has+a+Problem+Corey+R.+Tabor&amp;i=stripbooks&amp;tag=provenreads-20" target="_blank" rel="sponsored noopener" aria-label="Fox Has a Problem on Amazon"><img src="img/cover-fox-has-a-problem.webp" alt="Cover of Fox Has a Problem" loading="lazy"><b>Fox Has a Problem</b></a><span>Theodor Seuss Geisel Award</span></li>
+        <li><a href="https://www.amazon.com/s?k=Inked+Karen+Wasson&amp;i=stripbooks&amp;tag=provenreads-20" target="_blank" rel="sponsored noopener" aria-label="Inked on Amazon"><img src="img/cover-inked.webp" alt="Cover of Inked" loading="lazy"><b>Inked</b></a><span>CBCA Book of the Year · Younger Readers</span></li>
+        <li><a href="https://www.amazon.com/s?k=Once+I+Was+a+Giant+Zeno+Sworder&amp;i=stripbooks&amp;tag=provenreads-20" target="_blank" rel="sponsored noopener" aria-label="Once I Was a Giant on Amazon"><img src="img/cover-once-i-was-a-giant.webp" alt="Cover of Once I Was a Giant" loading="lazy"><b>Once I Was a Giant</b></a><span>CBCA Picture Book of the Year</span></li>
+        <li><a href="https://www.amazon.com/s?k=Impossible+Creatures+Katherine+Rundell&amp;i=stripbooks&amp;tag=provenreads-20" target="_blank" rel="sponsored noopener" aria-label="Impossible Creatures on Amazon"><img src="img/cover-impossible-creatures.webp" alt="Cover of Impossible Creatures" loading="lazy"><b>Impossible Creatures</b></a><span>Vermont Golden Dome Book Award</span></li>
+      </ul>
+      <p class="awards">Awards followed include the Theodor Seuss Geisel Award, CBCA Book of the Year, the National Book Award, the Children’s Booker Prize, the Governor General’s Awards, the Texas Bluebonnet Award and more.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap center">
+      <h2>Made for families, <em>careful with data</em></h2>
+      <ul class="trust" style="text-align:left">
+        <li><h3>No email needed</h3><p>Try the app with a guest account. Add an email later if you want to save and restore your household.</p></li>
+        <li><h3>No third-party ads or analytics</h3><p>Your child’s profile is used to recommend books, and for nothing else.</p></li>
+        <li><h3>Delete any time</h3><p>Remove a child’s data or your whole account whenever you like. <a href="privacy.html">Read the privacy policy</a>.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="final">
+        <h2>Find your child’s next favourite book</h2>
+        <p>Award-winning books, matched to your child. Get ProvenReads on Google Play.</p>
+        <a class="play" href="https://play.google.com/store/apps/details?id=com.provenreads.app">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M22 10 L86 50 L22 90 Z" fill="currentColor" stroke="currentColor" stroke-width="10" stroke-linejoin="round"/></svg>
+          <div><small>GET IT ON</small><span>Google Play</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="privacy.html">Privacy policy</a>
+      <a href="account-deletion.html">Account deletion</a>
+      <a href="mailto:support@provenreads.com">support@provenreads.com</a>
+    </nav>
+    <p>Library links and Amazon links are provided for your convenience. As an Amazon Associate, the ProvenReads app earns from qualifying purchases.</p>
+    <p>Google Play is a trademark of Google LLC. Book covers belong to their publishers.</p>
+    <p>© 2026 ProvenReads</p>
+  </div>
+</footer>
+
+</body>
+</html>
