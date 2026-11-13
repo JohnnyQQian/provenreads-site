@@ -114,12 +114,16 @@
   footer { padding: 40px 0 56px; font-size: 15px; color: var(--muted); }
   footer nav { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-bottom: 18px; font-size: 16px; }
   footer p + p { margin-top: 8px; }
-  .social { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 22px; }
-  .social span { font: 600 16px/1 'Fredoka', sans-serif; color: var(--navy); margin-right: 4px; }
-  .social a { display: inline-flex; align-items: center; gap: 8px; font: 600 16px/1 'Fredoka', sans-serif; color: var(--navy);
-              text-decoration: none; background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 10px 16px; }
-  .social a:hover { border-color: var(--navy); }
-  .social svg { width: 20px; height: 20px; }
+.head-actions { display: flex; align-items: center; gap: 10px; }
+  .soc { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: var(--navy); background: #fff; border: 2px solid var(--line); }
+  .soc:hover { border-color: var(--navy); }
+  .soc svg { width: 22px; height: 22px; }
+  @media (max-width: 480px) {
+    header img { width: 132px; }
+    .head-actions { gap: 6px; }
+    .soc { width: 40px; height: 40px; }
+    .btn-small { padding: 12px 14px; font-size: 15px; }
+  }
 
   @media (max-width: 860px) {
     .hero .wrap, .split { grid-template-columns: 1fr; }
@@ -140,7 +144,15 @@
 <header>
   <div class="wrap">
     <a href="/" aria-label="ProvenReads home"><img src="img/logo.png" alt="ProvenReads" width="540" height="91"></a>
-    <a class="btn-small" href="https://play.google.com/store/apps/details?id=com.provenreads.app">Get the app</a>
+    <div class="head-actions">
+      <a class="soc" href="https://www.instagram.com/provenreads/" target="_blank" rel="noopener" aria-label="ProvenReads on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="soc" href="https://www.tiktok.com/@provenreads" target="_blank" rel="noopener" aria-label="ProvenReads on TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.6 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.26 0 .5.04.74.1V9.72a5.9 5.9 0 0 0-.74-.05 5.73 5.73 0 1 0 5.7 5.73V9.1a7.3 7.3 0 0 0 4.2 1.33V7.3A4.2 4.2 0 0 1 16.6 3z"/></svg>
+      </a>
+      <a class="btn-small" href="https://play.google.com/store/apps/details?id=com.provenreads.app">Get the app</a>
+    </div>
   </div>
 </header>
 
@@ -250,17 +262,6 @@
       <a href="account-deletion.html">Account deletion</a>
       <a href="mailto:support@provenreads.com">support@provenreads.com</a>
     </nav>
-    <div class="social">
-      <span>Follow us</span>
-      <a href="https://www.instagram.com/provenreads/" target="_blank" rel="noopener" aria-label="ProvenReads on Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        Instagram
-      </a>
-      <a href="https://www.tiktok.com/@provenreads" target="_blank" rel="noopener" aria-label="ProvenReads on TikTok">
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.6 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.26 0 .5.04.74.1V9.72a5.9 5.9 0 0 0-.74-.05 5.73 5.73 0 1 0 5.7 5.73V9.1a7.3 7.3 0 0 0 4.2 1.33V7.3A4.2 4.2 0 0 1 16.6 3z"/></svg>
-        TikTok
-      </a>
-    </div>
     <p>Library links and Amazon links are provided for your convenience. As an Amazon Associate, the ProvenReads app earns from qualifying purchases.</p>
     <p>Google Play is a trademark of Google LLC. Book covers belong to their publishers.</p>
     <p>© 2026 ProvenReads</p>
